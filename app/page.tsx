@@ -11,6 +11,7 @@ import { useMemo } from 'react';
 import { clusterApiUrl } from '@solana/web3.js';
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 import Balance from '@/components/Balance';
+import Airdrop from '@/components/Airdrop';
 
 
 
@@ -24,6 +25,7 @@ export default function Home() {
                     <WalletMultiButton />
                     <WalletDisconnectButton />
                     <Balance/>
+                    <Airdrop/>
                 </WalletModalProvider>
             </WalletProvider>
         </ConnectionProvider>
