@@ -10,6 +10,7 @@ import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react
 import { useMemo } from 'react';
 import { clusterApiUrl } from '@solana/web3.js';
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
+import Balance from '@/components/Balance';
 
 
 
@@ -22,7 +23,7 @@ export default function Home() {
                 <WalletModalProvider>
                     <WalletMultiButton />
                     <WalletDisconnectButton />
-                    { /* Your app's components go here, nested within the context providers. */ }
+                    <Balance/>
                 </WalletModalProvider>
             </WalletProvider>
         </ConnectionProvider>
