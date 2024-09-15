@@ -12,6 +12,7 @@ import { clusterApiUrl } from '@solana/web3.js';
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 import Balance from '@/components/Balance';
 import Airdrop from '@/components/Airdrop';
+import SendSol from '@/components/SendSol';
 
 
 
@@ -26,6 +27,7 @@ export default function Home() {
                     <WalletDisconnectButton />
                     <Balance/>
                     <Airdrop/>
+                    <SendSol/>
                 </WalletModalProvider>
             </WalletProvider>
         </ConnectionProvider>
