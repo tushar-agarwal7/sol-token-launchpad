@@ -13,6 +13,7 @@ import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 import Balance from '@/components/Balance';
 import Airdrop from '@/components/Airdrop';
 import SendSol from '@/components/SendSol';
+import CreateToken from '@/components/CreateToken';
 
 
 
@@ -28,6 +29,7 @@ export default function Home() {
                     <Balance/>
                     <Airdrop/>
                     <SendSol/>
+                    <CreateToken/>
                 </WalletModalProvider>
             </WalletProvider>
         </ConnectionProvider>
