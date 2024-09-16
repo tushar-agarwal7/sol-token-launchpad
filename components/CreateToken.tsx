@@ -3,6 +3,7 @@ import { pack } from '@solana/spl-token-metadata';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react'
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { Keypair, SystemProgram, Transaction } from '@solana/web3.js';
+import { UploadClient } from '@uploadcare/upload-client';
 import React, { useState } from 'react'
 
 const CreateToken = () => {
@@ -13,7 +14,25 @@ const CreateToken = () => {
     const [imageLink,setImageLink]=useState('')
     const [amount,setAmount]=useState('')
     const [isLoading,setIsLoading]=useState(false)
+
+
+    const client = new UploadClient({ publicKey: process.env.REACT_APP_PUBLIC_KEY! });
     
+    const createMetaData=async(name:string,symbol:string,description:string,image:string)=>{
+           const metaData=JSON.stringify({
+            name,symbol,description,image
+           })
+
+           const metaDatafile=new File([metaData],"metadata.json",{type:"application/json"})
+           try{
+            const result=await client.uploadFile(metaDatafile)
+            console.log("Succcessfully uploaded",result);
+            return result.cdnUrl
+           }
+           catch(e){
+            console.error("Failed",e);
+           }
+    }
 
     const createToken=async(e:React.FormEvent)=>{
      e.preventDefault()
@@ -22,6 +41,11 @@ const CreateToken = () => {
         if(!wallet.publicKey){
             throw new Error("Wallet is not connected")
         }
+        const metaDataUrl=await createMetaData(tokenName,symbol,"wiouhdj",imageLink)
+        if(!metaDataUrl){
+            throw new Error("failed to upload file")
+        }
+        console.log(metaDataUrl)
         
         const mint=Keypair.generate();
         const decimals=9;
@@ -30,7 +54,7 @@ const CreateToken = () => {
             mint:mint.publicKey,
             name:tokenName,
             symbol:symbol,
-            uri:imageLink,
+            uri:metaDataUrl,
             additionalMetadata: [],
         }
         const metadataLen = TYPE_SIZE + LENGTH_SIZE + pack(metadata).length;
@@ -53,7 +77,7 @@ const CreateToken = () => {
                 mintAuthority:wallet.publicKey,
                 name:tokenName,
                 symbol:symbol,
-                uri:imageLink
+                uri:metaDataUrl
             })
 
         )
