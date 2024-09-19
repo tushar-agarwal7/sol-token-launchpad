@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import WalletContext from "@/components/WalletContext";
 import NavBar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#080740] text-gray-100`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-br from-gray-900 to-black text-gray-100`}
       >
 
         <WalletContext>
@@ -36,6 +37,7 @@ export default function RootLayout({
         {children}
 
         </WalletContext>
+        <Footer/>
       </body>
     </html>
   );

@@ -1,5 +1,7 @@
 'use client'
 import React from 'react'
+import Image from 'next/image'; 
+import Link from 'next/link';   
 import { WalletDisconnectButton, WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import "@solana/wallet-adapter-react-ui/styles.css";
 
@@ -9,10 +11,16 @@ const Navbar = () => {
       <nav className="shadow backdrop-blur-lg shadow-2xl rounded-md transition-all duration-500 ease-in-out">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           
-          <div className="text-3xl font-extrabold text-gray-100 drop-shadow-lg tracking-wider">
-            <span className="bg-gradient-to-r from-cyan-400 to-purple-600 text-transparent bg-clip-text">
-              Solana Token Launchpad
-            </span>
+          <div className="flex items-center">
+            <Link href="/" passHref>
+              <Image
+                src="/logo.png"  
+                alt="Logo"
+                width={50}       
+                height={50}      
+                className="drop-shadow-lg cursor-pointer"  
+              />
+            </Link>
           </div>
 
           <div className="flex items-center space-x-4">

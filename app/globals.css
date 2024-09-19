@@ -90,3 +90,45 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.neon-glow {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.neon-card {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes gradient-border {
+  0% {
+    border-image-source: linear-gradient(45deg, #ff6b6b, #ffcb5c);
+  }
+  50% {
+    border-image-source: linear-gradient(45deg, #6a1b9a, #ff6b6b);
+  }
+  100% {
+    border-image-source: linear-gradient(45deg, #ffcb5c, #6a1b9a);
+  }
+}
+
+.border-gradient-animated {
+  border-style: solid;
+  border-width: 4px;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(45deg, #ff6b6b, #ffcb5c);
+  animation: gradient-border 3s infinite linear;
+}
+
+@keyframes rotate-border {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animateBorder {
+  animation: rotate-border 2s linear infinite;
+  border-image: linear-gradient(45deg, #f06, transparent) 1;
+}

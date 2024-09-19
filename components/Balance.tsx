@@ -23,7 +23,7 @@ const Balance = () => {
   return (
     <div className="mb-6">
       {publicKey ? (
-        <p className="text-lg font-semibold">
+        <p className="text-4xl font-semibold">
          {balance !== null ? `${balance} SOL` : "Loading..."}
         </p>
       ) : (
