@@ -24,7 +24,7 @@ const Balance = () => {
     <div className="mb-6">
       {publicKey ? (
         <p className="text-lg font-semibold">
-          Balance: {balance !== null ? `${balance} SOL` : "Loading..."}
+         {balance !== null ? `${balance} SOL` : "Loading..."}
         </p>
       ) : (
         <p>Loading...</p>

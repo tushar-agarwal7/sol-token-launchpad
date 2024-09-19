@@ -34,7 +34,7 @@ const CreateToken = () => {
     const createToken = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsLoading(true);
-        setErrorMessage(''); // Clear previous errors
+        setErrorMessage(''); 
 
         try {
             if (!wallet.publicKey) throw new Error("Wallet is not connected");
