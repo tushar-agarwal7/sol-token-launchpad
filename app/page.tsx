@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import Balance from '@/components/Balance';
 import { Button } from '@/components/ui/moving-border';
+import { Boxes } from '@/components/ui/background-boxes';
+import { BackgroundBeams } from '@/components/ui/background-beams';
 
 
 export default function WalletUI() {
@@ -16,6 +18,7 @@ export default function WalletUI() {
   const handleSend = () => router.push('/send');
   const handleToken = () => router.push('/createToken');
   const allTokens = () => router.push('/alltokens');
+  const handleRecieve=()=>router.push('/address')
   const viewTransactions = () => router.push('/transactions');
 
   return (
@@ -28,6 +31,7 @@ export default function WalletUI() {
       >
         Solana Token Launchpad
       </motion.h1>
+
 
       <motion.div
         className="relative mb-10 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 p-8 mt-10 rounded-3xl shadow-2xl w-full max-w-md border border-white/20 overflow-hidden"
@@ -55,6 +59,7 @@ export default function WalletUI() {
           className=" bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 p-6 rounded-xl shadow-lg cursor-pointer transform transition-all"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          onClick={handleRecieve}
         >
           <FaWallet className="text-5xl text-white mx-auto mb-4" />
           <h3 className="text-xl font-semibold text-white text-center">Receive</h3>
@@ -91,7 +96,7 @@ export default function WalletUI() {
         </motion.div>
       </div>
 
-     
+      {/* <BackgroundBeams /> */}
 
     </div>
   );
