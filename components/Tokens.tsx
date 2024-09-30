@@ -110,7 +110,7 @@ export default function TokenList() {
   }, [publicKey, connection]);
 
   return (
-    <motion.div className="max-w-7xl mx-auto p-8 bg-gradient-to-r from-blue-900 to-gray-900 text-white rounded-lg shadow-2xl ring-2 ring-purple-800/60" initial="hidden" animate="visible" variants={containerVariants}>
+    <motion.div className="max-w-7xl mx-auto p-8 mb-20 mt-10 text-white rounded-lg shadow-2xl ring-2 ring-purple-800/60" initial="hidden" animate="visible" variants={containerVariants}>
       <motion.h1 className="text-6xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-600 drop-shadow-lg" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
         My Tokens
       </motion.h1>
@@ -128,7 +128,7 @@ export default function TokenList() {
       ) : tokens.length > 0 ? (
         <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" variants={containerVariants}>
           {tokens.map((token, index) => (
-            <motion.div key={index} className="p-6 bg-gray-800 rounded-xl shadow-lg hover:shadow-pink-500/50 transition-transform transform hover:scale-105 ring-2 ring-purple-500/40" variants={itemVariants}>
+            <motion.div key={index} className="p-6 bg-gradient-to-r from-blue-900 to-gray-900 rounded-xl shadow-lg hover:shadow-pink-500/50 transition-transform transform hover:scale-105 ring-2 ring-purple-500/40" variants={itemVariants}>
               <div className="flex justify-between items-center mb-4">
                 <div>
                   <p className="text-lg font-semibold text-pink-400 drop-shadow-md">
